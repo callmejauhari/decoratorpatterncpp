@@ -32,6 +32,9 @@ public:
     {
         this->_type.append(_f->GetType() + " Juice");
     }
+    ~FruitJuice(){
+        delete _f;
+    }
 };
 
 class FruitPie : public Fruit
@@ -43,13 +46,19 @@ public:
     {
         this->_type.append(_f->GetType() + " Pie");
     }
+    ~FruitPie()
+    {
+        delete _f;
+    }
 };
 
 int main()
 {
     Fruit *o = new Orange("Jeruk Bali");
+    Fruit *ot = new Orange("Jeruk Thaiand");
     FruitJuice *fj = new FruitJuice(o);
-    FruitPie *fp = new FruitPie(o);
+    FruitPie *fp = new FruitPie(ot);
     cout << fj->GetType() << endl;
     cout << fp->GetType() << endl;
+    return 0;
 }
